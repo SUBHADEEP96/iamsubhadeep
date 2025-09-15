@@ -47,7 +47,7 @@ interface MobileNavMenuProps {
   children: React.ReactNode;
   className?: string;
   isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
@@ -202,7 +202,11 @@ export const MobileNavMenu = ({
   onClose,
 }: MobileNavMenuProps) => {
   useEffect(() => {
+<<<<<<< HEAD
     if (!isOpen) {
+=======
+    if (!isOpen || !onClose) {
+>>>>>>> main
       return;
     }
 
@@ -222,7 +226,11 @@ export const MobileNavMenu = ({
   return (
     <>
       <AnimatePresence>
+<<<<<<< HEAD
         {isOpen && (
+=======
+        {isOpen && onClose && (
+>>>>>>> main
           <motion.button
             key="mobile-nav-overlay"
             type="button"
