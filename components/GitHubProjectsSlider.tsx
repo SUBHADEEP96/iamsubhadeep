@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 type Repo = {
   id: number;
@@ -65,7 +66,7 @@ export default function GitHubProjectsSlider({
           throw new Error(`Failed to load repos: ${res.status} ${text}`);
         }
 
-        let data: Repo[] = await res.json();
+        let data = (await res.json()) as Repo[];
 
         // If fetching directly from GitHub, data includes all public repos.
         // Filter by topic on the client if requested (topics array might be missing for direct REST without preview headers).
@@ -80,8 +81,10 @@ export default function GitHubProjectsSlider({
             new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
         );
         setRepos(data.slice(0, limit));
-      } catch (e: any) {
-        setError(e.message || "Something went wrong");
+      } catch (error: unknown) {
+        const message =
+          error instanceof Error ? error.message : "Something went wrong";
+        setError(message);
       } finally {
         setLoading(false);
       }
@@ -152,12 +155,13 @@ export default function GitHubProjectsSlider({
               >
                 <article className="group h-full rounded-2xl border bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
                   {/* Hero image: GitHub Open Graph preview */}
-                  <div className="h-40 w-full overflow-hidden">
-                    <img
+                  <div className="relative h-40 w-full overflow-hidden">
+                    <Image
                       src={`https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`}
                       alt={`${repo.name} preview`}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                      loading="lazy"
+                      fill
+                      sizes="(min-width: 1024px) 460px, (min-width: 768px) 420px, (min-width: 640px) 360px, 88vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                   </div>
 
