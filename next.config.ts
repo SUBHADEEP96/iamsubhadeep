@@ -8,9 +8,6 @@ const nextConfig: NextConfig = {
       "opengraph.githubassets.com", // GitHub Open Graph previews
     ],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 };
 
 export default nextConfig;
