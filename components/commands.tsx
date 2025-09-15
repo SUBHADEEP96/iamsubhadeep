@@ -79,8 +79,8 @@ export const commands: { [key: string]: () => React.ReactNode } = {
       </div>
       <div className="space-y-2 text-white">
         <p>
-          Hi, I'm Rudraksh Tripathi, an Enthusiastic and results-driven software
-          developer. Passionate about building innovative solutions and
+          Hi, I&apos;m Rudraksh Tripathi, an Enthusiastic and results-driven
+          software developer. Passionate about building innovative solutions and
           leveraging technology to optimize processes.
         </p>
 
@@ -340,7 +340,7 @@ export const commands: { [key: string]: () => React.ReactNode } = {
           <div className="text-white text-sm space-y-1">
             <div>
               • Secured a place in the Top 10 among nationwide participants with
-              the project "Visionary-Spaces".
+              the project &quot;Visionary-Spaces&quot;.
             </div>
             <div>
               • Built a solution combining creativity and technology to design
@@ -523,7 +523,7 @@ export const commands: { [key: string]: () => React.ReactNode } = {
       <div className="space-y-3">
         <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
           <div className="text-white text-sm mb-3">
-            Let's connect and discuss opportunities!
+            Let&apos;s connect and discuss opportunities!
           </div>
           <div className="space-y-2 text-white text-sm">
             <div className="flex items-center">
