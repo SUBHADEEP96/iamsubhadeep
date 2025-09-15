@@ -84,7 +84,6 @@ export function NavbarDemo() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
           </MobileNavHeader>
-
           <MobileNavMenu isOpen={isMobileMenuOpen}>
             {navItems.map((item, idx) => (
               <a
