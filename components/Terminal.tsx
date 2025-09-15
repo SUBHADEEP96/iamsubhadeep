@@ -27,10 +27,10 @@ const Terminal: React.FC = () => {
       output: (
         <div className="space-y-2">
           <div className="text-[#00FF00]">
-            Welcome to my interactive 'AI powered' portfolio terminal!
+            Welcome to my interactive &apos;AI powered&apos; portfolio terminal!
           </div>
           <div className="text-[#00FF00]">
-            Type 'help' to see available commands.
+            Type &apos;help&apos; to see available commands.
           </div>
           <div className="text-[#00FF00] text-sm">
             Available commands: {Object.keys(commands).join(" | ")}
@@ -77,10 +77,10 @@ const Terminal: React.FC = () => {
         output: (
           <div className="space-y-2">
             <div className="text-[#00FF00]">
-              Welcome to my interactive 'AI powered' portfolio terminal!
+              Welcome to my interactive &apos;AI powered&apos; portfolio terminal!
             </div>
             <div className="text-[#00FF00]">
-              Type 'help' to see available commands.
+              Type &apos;help&apos; to see available commands.
             </div>
             <div className="text-[#00FF00] text-sm">
               Available commands: {Object.keys(commands).join(" | ")}
@@ -95,7 +95,7 @@ const Terminal: React.FC = () => {
     } else {
       output = (
         <div className="text-white">
-          Command not found: {cmd}. Type 'help' for available commands.
+          Command not found: {cmd}. Type &apos;help&apos; for available commands.
         </div>
       );
     }

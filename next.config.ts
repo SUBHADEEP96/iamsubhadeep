@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: [
       "api.microlink.io", // Microlink Image Preview
+      "opengraph.githubassets.com", // GitHub Open Graph previews
     ],
   },
   eslint: {
