@@ -5,6 +5,24 @@ const GITHUB_USERNAME = "SUBHADEEP96";
 export const revalidate = 0;
 export const dynamic = "force-dynamic";
 
+type GitHubRepo = {
+  id: number;
+  name: string;
+  html_url: string;
+  description: string | null;
+  stargazers_count: number;
+  language: string | null;
+  owner?: {
+    login?: string | null;
+  } | null;
+  topics?: string[];
+  pushed_at: string;
+};
+
+type GitHubSearchResponse = {
+  items?: GitHubRepo[];
+};
+
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
@@ -20,7 +38,7 @@ export async function GET(req: Request) {
       headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
     }
 
-    let repos: any[] = [];
+    let repos: GitHubRepo[] = [];
 
     if (topic) {
       // Use Search API to get repos with a specific topic for your user
@@ -41,7 +59,7 @@ export async function GET(req: Request) {
           { status: res.status }
         );
       }
-      const json = await res.json();
+      const json = (await res.json()) as GitHubSearchResponse;
       repos = json.items ?? [];
     } else {
       // Fallback: list all repos if no topic provided
@@ -59,7 +77,7 @@ export async function GET(req: Request) {
           { status: res.status }
         );
       }
-      repos = await res.json();
+      repos = (await res.json()) as GitHubRepo[];
     }
 
     // Normalize fields for your slider
@@ -76,7 +94,8 @@ export async function GET(req: Request) {
     }));
 
     return NextResponse.json(slim, { status: 200 });
-  } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? "error" }, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "error";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

@@ -235,7 +235,6 @@ export const MobileNavToggle = ({
 };
 
 export const NavbarLogo = () => {
-  // eslint-disable-next-line @next/next/no-img-element
   return (
     <a
       href="#"
