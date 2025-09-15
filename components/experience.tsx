@@ -75,21 +75,10 @@ export function Experience() {
         </>
       ),
     },
-    // {
-    //   id: "amity",
-    //   title: "Amity University",
-    //   content: (
-    //     <div>
-    //       <p className="text-sm md:text-base lg:text-lg text-neutral-800 dark:text-neutral-200">
-    //         <b>B.Tech, Computer Science & Engineering</b> | 2015 – 2019
-    //       </p>
-    //     </div>
-    //   ),
-    // },
   ];
 
   return (
-    <div className="relative w-full overflow-clip">
+    <div className="relative w-full  overflow-x-hidden">
       <Timeline data={data} />
     </div>
   );
