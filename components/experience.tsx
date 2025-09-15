@@ -9,7 +9,7 @@ export function Experience() {
       content: (
         <div>
           <p className="text-sm md:text-base lg:text-lg text-neutral-800 dark:text-neutral-200">
-            <b>Senior Frontend Developer</b> | Feb 2024 – Present <br />
+            <b>Senior Software Developer</b> | Feb 2024 – Present <br />
             <span className="text-neutral-700 dark:text-neutral-300">
               React.js, Remix.js, React Native, TypeScript, Tailwind, Prisma,
               Node.js, AWS, Docker, Azure OpenAI
