@@ -9,6 +9,7 @@ import {
 } from "motion/react";
 
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -46,7 +47,7 @@ interface MobileNavMenuProps {
   children: React.ReactNode;
   className?: string;
   isOpen: boolean;
-  onClose: () => void;
+  // onClose: () => void;
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
@@ -198,8 +199,8 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose,
-}: MobileNavMenuProps) => {
+}: // onClose,
+MobileNavMenuProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -234,16 +235,18 @@ export const MobileNavToggle = ({
 };
 
 export const NavbarLogo = () => {
+  // eslint-disable-next-line @next/next/no-img-element
   return (
     <a
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <img
+      <Image
         src="https://assets.aceternity.com/logo-dark.png"
         alt="logo"
         width={30}
         height={30}
+        priority
       />
       <span className="font-medium text-black dark:text-white">Startup</span>
     </a>
