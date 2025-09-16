@@ -22,9 +22,13 @@ CONTEXT:
 Answer:`);
 
 async function getRetriever() {
+  const chromaApiKey = process.env.CHROMA_API_KEY;
+  if (!chromaApiKey) {
+    throw new Error("CHROMA_API_KEY environment variable is not set.");
+  }
   const embeddings = new OpenAIEmbeddings({ model: "text-embedding-3-small" });
   const client = new CloudClient({
-    apiKey: process.env.CHROMA_API_KEY!,
+    apiKey: chromaApiKey,
   });
   const store = new Chroma(embeddings, {
     collectionName: "subhadeep_rag",
@@ -34,35 +38,91 @@ async function getRetriever() {
 }
 
 export async function POST(req: NextRequest) {
-  const { question } = await req.json();
-  const retriever = await getRetriever();
-  const llm = new ChatOpenAI({
-    model: "gpt-4o-mini",
-    temperature: 0.2,
-    streaming: true,
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return textResponse("Invalid JSON body.", 400);
+  }
+
+  const question =
+    typeof body === "object" && body !== null
+      ? (body as Record<string, unknown>).question
+      : undefined;
+
+  if (typeof question !== "string" || !question.trim()) {
+    return textResponse(
+      "Request body must include a non-empty `question` string.",
+      400
+    );
+  }
+
+  try {
+    const retriever = await getRetriever();
+    const llm = new ChatOpenAI({
+      model: "gpt-4o-mini",
+      temperature: 0.2,
+      streaming: true,
+    });
+
+    const trimmedQuestion = question.trim();
+    const contextChain = RunnableSequence.from([
+      (input: { question: string }) => input.question,
+      retriever,
+      (docs) => docs.map((d) => `• ${d.pageContent}`).join("\n\n"),
+    ]);
+    const chain = RunnableSequence.from([
+      (input: string) => ({ question: input }),
+      RunnablePassthrough.assign({
+        context: contextChain,
+      }),
+      prompt,
+      llm,
+    ]);
+
+    const answer = await chain.invoke(trimmedQuestion);
+    const answerText = coerceToText(answer).trim();
+
+    if (!answerText) {
+      console.error("RAG route error: empty response from language model", {
+        answer,
+      });
+      return textResponse(
+        "RAG pipeline error: received an empty response from the language model.",
+        502
+      );
+    }
+
+    return textResponse(answerText, 200);
+  } catch (err) {
+    console.error("RAG route error:", err);
+    const message =
+      err instanceof Error
+        ? err.message
+        : "Unknown error while running the RAG pipeline.";
+    return textResponse(`RAG pipeline error: ${message}`);
+  }
+}
+
+function textResponse(message: string, status = 500) {
+  return new Response(message, {
+    status,
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
   });
+}
 
-  const chain = RunnableSequence.from([
-    {
-      context: retriever.pipe((docs) =>
-        docs.map((d) => `• ${d.pageContent}`).join("\n\n")
-      ),
-      question: new RunnablePassthrough(),
-    },
-    prompt,
-    llm,
-  ]);
+function coerceToText(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value))
+    return value.map((item) => coerceToText(item)).filter(Boolean).join("");
+  if (!value || typeof value !== "object") return "";
 
-  const stream = await chain.stream({ question });
-  const enc = new TextEncoder();
-  return new Response(
-    new ReadableStream({
-      async pull(controller) {
-        for await (const chunk of stream)
-          controller.enqueue(enc.encode(String(chunk)));
-        controller.close();
-      },
-    }),
-    { headers: { "Content-Type": "text/plain; charset=utf-8" } }
-  );
+  const withText = value as { text?: unknown };
+  if (typeof withText.text === "string") return withText.text;
+
+  const withContent = value as { content?: unknown };
+  if (withContent.content !== undefined)
+    return coerceToText(withContent.content);
+
+  return "";
 }
