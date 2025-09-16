@@ -65,22 +65,18 @@ export async function POST(req: NextRequest) {
       streaming: true,
     });
 
-    const trimmedQuestion = question.trim();
-    const contextChain = RunnableSequence.from([
-      (input: { question: string }) => input.question,
-      retriever,
-      (docs) => docs.map((d) => `• ${d.pageContent}`).join("\n\n"),
-    ]);
     const chain = RunnableSequence.from([
-      (input: string) => ({ question: input }),
-      RunnablePassthrough.assign({
-        context: contextChain,
-      }),
+      {
+        context: retriever.pipe((docs) =>
+          docs.map((d) => `• ${d.pageContent}`).join("\n\n")
+        ),
+        question: new RunnablePassthrough(),
+      },
       prompt,
       llm,
     ]);
 
-    const stream = await chain.stream(trimmedQuestion);
+    const stream = await chain.stream({ question: question.trim() });
     const enc = new TextEncoder();
     return new Response(
       new ReadableStream({
