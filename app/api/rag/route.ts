@@ -65,33 +65,35 @@ export async function POST(req: NextRequest) {
       streaming: true,
     });
 
+    const trimmedQuestion = question.trim();
+    const contextChain = RunnableSequence.from([
+      (input: { question: string }) => input.question,
+      retriever,
+      (docs) => docs.map((d: any) => `• ${d.pageContent}`).join("\n\n"),
+    ]);
     const chain = RunnableSequence.from([
-      {
-        context: retriever.pipe((docs) =>
-          docs.map((d) => `• ${d.pageContent}`).join("\n\n")
-        ),
-        question: new RunnablePassthrough(),
-      },
+      (input: string) => ({ question: input }),
+      RunnablePassthrough.assign({
+        context: contextChain,
+      }),
       prompt,
       llm,
     ]);
 
-    const stream = await chain.stream({ question: question.trim() });
-    const enc = new TextEncoder();
-    return new Response(
-      new ReadableStream({
-        async pull(controller) {
-          try {
-            for await (const chunk of stream)
-              controller.enqueue(enc.encode(String(chunk)));
-            controller.close();
-          } catch (err) {
-            controller.error(err);
-          }
-        },
-      }),
-      { headers: { "Content-Type": "text/plain; charset=utf-8" } }
-    );
+    const answer = await chain.invoke(trimmedQuestion);
+    const answerText = coerceToText(answer).trim();
+
+    if (!answerText) {
+      console.error("RAG route error: empty response from language model", {
+        answer,
+      });
+      return textResponse(
+        "RAG pipeline error: received an empty response from the language model.",
+        502
+      );
+    }
+
+    return textResponse(answerText, 200);
   } catch (err) {
     console.error("RAG route error:", err);
     const message =
@@ -107,4 +109,23 @@ function textResponse(message: string, status = 500) {
     status,
     headers: { "Content-Type": "text/plain; charset=utf-8" },
   });
+}
+
+function coerceToText(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value))
+    return value
+      .map((item) => coerceToText(item))
+      .filter(Boolean)
+      .join("");
+  if (!value || typeof value !== "object") return "";
+
+  const withText = value as { text?: unknown };
+  if (typeof withText.text === "string") return withText.text;
+
+  const withContent = value as { content?: unknown };
+  if (withContent.content !== undefined)
+    return coerceToText(withContent.content);
+
+  return "";
 }
