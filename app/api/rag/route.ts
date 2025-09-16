@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
     const contextChain = RunnableSequence.from([
       (input: { question: string }) => input.question,
       retriever,
-      (docs) => docs.map((d) => `• ${d.pageContent}`).join("\n\n"),
+      (docs) => docs.map((d: any) => `• ${d.pageContent}`).join("\n\n"),
     ]);
     const chain = RunnableSequence.from([
       (input: string) => ({ question: input }),
@@ -114,7 +114,10 @@ function textResponse(message: string, status = 500) {
 function coerceToText(value: unknown): string {
   if (typeof value === "string") return value;
   if (Array.isArray(value))
-    return value.map((item) => coerceToText(item)).filter(Boolean).join("");
+    return value
+      .map((item) => coerceToText(item))
+      .filter(Boolean)
+      .join("");
   if (!value || typeof value !== "object") return "";
 
   const withText = value as { text?: unknown };
