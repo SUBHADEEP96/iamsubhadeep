@@ -21,49 +21,49 @@ export const commands: { [key: string]: () => React.ReactNode } = {
       <div className="grid grid-cols-2 gap-4 text-sm">
         <div className="space-y-1">
           <div>
-            <span className="text-[#00FF00]">help</span> -{" "}
+            <span className="text-white">help</span> -{" "}
             <span className="text-white">Show this help message</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">about</span> -{" "}
+            <span className="text-white">about</span> -{" "}
             <span className="text-white">Learn about me</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">skills</span> -{" "}
+            <span className="text-white">skills</span> -{" "}
             <span className="text-white">View my technical skills</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">projects</span> -{" "}
+            <span className="text-white">projects</span> -{" "}
             <span className="text-white">See my projects</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">experience</span> -{" "}
+            <span className="text-white">experience</span> -{" "}
             <span className="text-white">Work experience</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">education</span> -{" "}
+            <span className="text-white">education</span> -{" "}
             <span className="text-white">Educational background</span>
           </div>
         </div>
         <div className="space-y-1">
           <div>
-            <span className="text-[#00FF00]">certifications</span> -{" "}
+            <span className="text-white">certifications</span> -{" "}
             <span className="text-white">My certifications</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">leadership</span> -{" "}
+            <span className="text-white">leadership</span> -{" "}
             <span className="text-white">Leadership experience</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">contact</span> -{" "}
+            <span className="text-white">contact</span> -{" "}
             <span className="text-white">Get in touch</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">sudo</span> -{" "}
+            <span className="text-white">sudo</span> -{" "}
             <span className="text-white">Secret command</span>
           </div>
           <div>
-            <span className="text-[#00FF00]">clear</span> -{" "}
+            <span className="text-white">clear</span> -{" "}
             <span className="text-white">Clear terminal</span>
           </div>
         </div>
@@ -75,11 +75,11 @@ export const commands: { [key: string]: () => React.ReactNode } = {
     <div className="space-y-4">
       <div className="text-white font-semibold flex items-center">
         <User className="w-4 h-4 mr-2" />
-        About Rudraksh Tripathi
+        About Subhadeep Paul
       </div>
       <div className="space-y-2 text-white">
         <p>
-          Hi, I&apos;m Rudraksh Tripathi, an Enthusiastic and results-driven
+          Hi, I&apos;m Subhadeep Paul, an Enthusiastic and results-driven
           software developer. Passionate about building innovative solutions and
           leveraging technology to optimize processes.
         </p>
@@ -178,7 +178,7 @@ export const commands: { [key: string]: () => React.ReactNode } = {
               href="https://cyber-paste.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#00FF00] hover:text-white transition-colors text-xs"
+              className="text-white hover:text-white transition-colors text-xs"
             >
               🌐 Live Demo
             </a>
@@ -206,7 +206,7 @@ export const commands: { [key: string]: () => React.ReactNode } = {
               href="https://study-smart-pink.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#00FF00] hover:text-white transition-colors text-xs"
+              className="text-white hover:text-white transition-colors text-xs"
             >
               🌐 Live Demo
             </a>
@@ -229,7 +229,7 @@ export const commands: { [key: string]: () => React.ReactNode } = {
               href="https://visionary-spaces.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#00FF00] hover:text-white transition-colors text-xs"
+              className="text-white hover:text-white transition-colors text-xs"
             >
               🌐 Live Demo
             </a>
@@ -255,7 +255,7 @@ export const commands: { [key: string]: () => React.ReactNode } = {
                 href="https://aura-calm.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00FF00] hover:text-white transition-colors text-xs"
+                className="text-white hover:text-white transition-colors text-xs"
               >
                 🌐 Live Demo
               </a>
@@ -276,10 +276,10 @@ export const commands: { [key: string]: () => React.ReactNode } = {
           </div>
           <div className="mt-2">
             <a
-              href="https://github.com/rudrakshtripathi/Invisible-Cloak"
+              href="https://github.com/SUBHADEEP96/Invisible-Cloak"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#00FF00] hover:text-white transition-colors text-xs"
+              className="text-white hover:text-white transition-colors text-xs"
             >
               🔗 GitHub Repository
             </a>
@@ -303,10 +303,10 @@ export const commands: { [key: string]: () => React.ReactNode } = {
           </div>
           <div className="mt-2">
             <a
-              href="https://github.com/rudrakshtripathi/JARVIS-_VOICE-ASSINTANT"
+              href="https://github.com/SUBHADEEP96/JARVIS-_VOICE-ASSINTANT"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#00FF00] hover:text-white transition-colors text-xs"
+              className="text-white hover:text-white transition-colors text-xs"
             >
               🔗 GitHub Repository
             </a>
@@ -529,43 +529,44 @@ export const commands: { [key: string]: () => React.ReactNode } = {
             <div className="flex items-center">
               <Mail className="w-4 h-4 mr-2" />
               <a
-                href="mailto:work.rudrakshtripathi@gmail.com"
-                className="hover:text-[#00FF00] transition-colors text-white"
+                href="mailto:subhadeep2040@gmail.com
+"
+                className="hover:text-white transition-colors text-white"
               >
-                work.rudrakshtripathi@gmail.com
+                subhadeep2040@gmail.com
               </a>
             </div>
             <div className="flex items-center">
               <span className="w-4 h-4 mr-2">💼</span>
               <a
-                href="https://www.linkedin.com/in/rudraksh--tripathi/"
+                href="https://www.linkedin.com/in/subhadeep1996/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#00FF00] transition-colors text-white"
+                className="hover:text-white transition-colors text-white"
               >
-                https://www.linkedin.com/in/rudraksh--tripathi/
+                linkedin.com/in/subhadeep1996
               </a>
             </div>
             <div className="flex items-center">
               <span className="w-4 h-4 mr-2">🐱</span>
               <a
-                href="https://github.com/rudrakshtripathi"
+                href="https://github.com/SUBHADEEP96"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#00FF00] transition-colors text-white"
+                className="hover:text-white transition-colors text-white"
               >
-                https://github.com/rudrakshtripathi
+                github.com/SUBHADEEP96
               </a>
             </div>
             <div className="flex items-center">
               <span className="w-4 h-4 mr-2">🌐</span>
               <a
-                href="https://portfolio-website-woad-tau-82.vercel.app/"
+                href="https://www.iamsubhadeep.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#00FF00] transition-colors text-white"
+                className="hover:text-white transition-colors text-white"
               >
-                rudraksh-portfolio.dev
+                iamsubhadeep.dev
               </a>
             </div>
           </div>

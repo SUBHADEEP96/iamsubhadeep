@@ -26,13 +26,13 @@ const Terminal: React.FC = () => {
       command: "welcome",
       output: (
         <div className="space-y-2">
-          <div className="text-[#00FF00]">
+          <div className="text-white">
             Welcome to my interactive &apos;AI powered&apos; portfolio terminal!
           </div>
-          <div className="text-[#00FF00]">
+          <div className="text-white">
             Type &apos;help&apos; to see available commands.
           </div>
-          <div className="text-[#00FF00] text-sm">
+          <div className="text-white text-sm">
             Available commands: {Object.keys(commands).join(" | ")}
           </div>
         </div>
@@ -76,13 +76,14 @@ const Terminal: React.FC = () => {
         command: "welcome",
         output: (
           <div className="space-y-2">
-            <div className="text-[#00FF00]">
-              Welcome to my interactive &apos;AI powered&apos; portfolio terminal!
+            <div className="text-white">
+              Welcome to my interactive &apos;AI powered&apos; portfolio
+              terminal!
             </div>
-            <div className="text-[#00FF00]">
+            <div className="text-white">
               Type &apos;help&apos; to see available commands.
             </div>
-            <div className="text-[#00FF00] text-sm">
+            <div className="text-white text-sm">
               Available commands: {Object.keys(commands).join(" | ")}
             </div>
           </div>
@@ -95,7 +96,8 @@ const Terminal: React.FC = () => {
     } else {
       output = (
         <div className="text-white">
-          Command not found: {cmd}. Type &apos;help&apos; for available commands.
+          Command not found: {cmd}. Type &apos;help&apos; for available
+          commands.
         </div>
       );
     }
@@ -141,7 +143,7 @@ const Terminal: React.FC = () => {
           <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
           <div className="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
-        <div className="ml-4 text-[#00FF00] text-sm">rudraksh@portfolio:~</div>
+        <div className="ml-4 text-white text-sm">subhadeep@portfolio:~</div>
       </div>
 
       {/* Terminal Content */}
@@ -150,8 +152,8 @@ const Terminal: React.FC = () => {
         {history.map((line) => (
           <div key={line.id} className="mb-4">
             {line.command !== "welcome" && (
-              <div className="flex items-center text-[#00FF00] mb-1">
-                <span className="text-[#00FF00]">rudraksh@portfolio:~$</span>
+              <div className="flex items-center text-white mb-1">
+                <span className="text-white">subhadeep@portfolio:~$</span>
                 <ChevronRight className="w-4 h-4 mx-1" />
                 <span>{line.command}</span>
               </div>
@@ -164,18 +166,18 @@ const Terminal: React.FC = () => {
 
         {/* Current Input */}
         <form onSubmit={handleSubmit} className="flex items-center">
-          <span className="text-[#00FF00] mr-2">rudraksh@portfolio:~$</span>
-          <ChevronRight className="w-4 h-4 mr-2 text-[#00FF00]" />
+          <span className="text-white mr-2">subhadeep@portfolio:~$</span>
+          <ChevronRight className="w-4 h-4 mr-2 text-white" />
           <input
             ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="flex-1 bg-transparent text-[#00FF00] outline-none caret-[#00FF00]"
+            className="flex-1 bg-transparent text-white outline-none caret-[#FFFFFF]"
             placeholder="Type a command..."
           />
-          <span className="animate-pulse text-[#00FF00]">█</span>
+          <span className="animate-pulse text-white">█</span>
         </form>
       </div>
     </div>

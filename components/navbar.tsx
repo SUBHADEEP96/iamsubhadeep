@@ -29,7 +29,7 @@ export function NavbarDemo() {
     {
       icon: <SquareTerminal className="w-4 h-4 inline mr-2" />,
       name: "Terminal",
-      link: "#terminal",
+      link: "/terminal",
     },
     {
       icon: <BotMessageSquare className="w-4 h-4 inline mr-2" />,

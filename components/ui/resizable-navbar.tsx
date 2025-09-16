@@ -10,7 +10,7 @@ import {
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
@@ -126,12 +126,13 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <Link
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
           className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
           key={`link-${idx}`}
           href={item.link}
+          prefetch={false}
         >
           {hovered === idx && (
             <motion.div
@@ -143,7 +144,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {item.icon}
             {item.name}
           </span>
-        </a>
+        </Link>
       ))}
     </motion.div>
   );
