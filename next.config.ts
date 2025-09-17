@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  serverExternalPackages: [
+    "@huggingface/transformers",
+    "onnxruntime-node",
+    "sharp",
+    "chromadb-default-embed",
+  ],
 };
 
 export default nextConfig;

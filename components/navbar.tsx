@@ -34,7 +34,7 @@ export function NavbarDemo() {
     {
       icon: <BotMessageSquare className="w-4 h-4 inline mr-2" />,
       name: "ChatBot",
-      link: "#chatbot",
+      link: "/chat",
     },
   ];
 
