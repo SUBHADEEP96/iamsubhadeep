@@ -1,6 +1,5 @@
 import { Experience } from "@/components/experience";
 import { Hero } from "@/components/hero";
-// import { NavbarDemo as Navbar } from "@/components/navbar";
 import Skills from "@/components/skills";
 import { Suspense } from "react";
 
@@ -9,7 +8,6 @@ import GitHubProjectsSliderClient from "@/components/GitHubProjectsSlider";
 export default function Home() {
   return (
     <div>
-      {/* <Navbar /> */}
       <Hero />
 
       <Skills />

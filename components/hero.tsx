@@ -10,8 +10,8 @@ export function Hero() {
         I&apos;m <Cover>Subhadeep Paul</Cover> 🧑‍💻
       </h2>
       <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
-        I am an experienced Generative AI and Agentic AI developer with a
-        background in full-stack application development.
+        An experienced Generative AI and Agentic AI developer with a background
+        in full-stack AI application development.
       </p>
     </BackgroundLines>
   );

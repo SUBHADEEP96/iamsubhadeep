@@ -5,7 +5,6 @@ import {
   User,
   Mail,
   GraduationCap,
-  Award,
   Users,
   Shield,
   HelpCircle,
@@ -22,45 +21,41 @@ export const commands: { [key: string]: () => React.ReactNode } = {
         <div className="space-y-1">
           <div>
             <span className="text-white">help</span> -{" "}
-            <span className="text-white">Show this help message</span>
+            <span className="text-white">Show this help</span>
           </div>
           <div>
             <span className="text-white">about</span> -{" "}
-            <span className="text-white">Learn about me</span>
+            <span className="text-white">About me</span>
           </div>
           <div>
             <span className="text-white">skills</span> -{" "}
-            <span className="text-white">View my technical skills</span>
+            <span className="text-white">Tech stack</span>
           </div>
           <div>
             <span className="text-white">projects</span> -{" "}
-            <span className="text-white">See my projects</span>
+            <span className="text-white">Selected work</span>
           </div>
           <div>
             <span className="text-white">experience</span> -{" "}
-            <span className="text-white">Work experience</span>
+            <span className="text-white">Roles & impact</span>
           </div>
           <div>
             <span className="text-white">education</span> -{" "}
-            <span className="text-white">Educational background</span>
+            <span className="text-white">Degree</span>
           </div>
         </div>
         <div className="space-y-1">
           <div>
-            <span className="text-white">certifications</span> -{" "}
-            <span className="text-white">My certifications</span>
-          </div>
-          <div>
             <span className="text-white">leadership</span> -{" "}
-            <span className="text-white">Leadership experience</span>
+            <span className="text-white">Team & community</span>
           </div>
           <div>
             <span className="text-white">contact</span> -{" "}
-            <span className="text-white">Get in touch</span>
+            <span className="text-white">Reach me</span>
           </div>
           <div>
             <span className="text-white">sudo</span> -{" "}
-            <span className="text-white">Secret command</span>
+            <span className="text-white">Fun extras</span>
           </div>
           <div>
             <span className="text-white">clear</span> -{" "}
@@ -79,30 +74,31 @@ export const commands: { [key: string]: () => React.ReactNode } = {
       </div>
       <div className="space-y-2 text-white">
         <p>
-          Hi, I&apos;m Subhadeep Paul, an Enthusiastic and results-driven
-          software developer. Passionate about building innovative solutions and
-          leveraging technology to optimize processes.
-        </p>
-
-        <p>
-          My expertise spans across modern web technologies, cloud platforms,
-          and AI/ML integration.
+          I&apos;m a Senior Frontend/Full-Stack Engineer with ~6 years building
+          secure, large-scale apps and production GenAI solutions across web &
+          mobile. I specialize in React/Next/Remix, Node/Python, and end-to-end
+          LLM systems (RAG, LangChain/LangGraph, Azure OpenAI, MCP) for real
+          business impact.
         </p>
         <p>
-          Skilled in collaborating within dynamic teams and delivering impactful
-          solutions.
+          I enjoy taking products from 0→1: architecting data models, wiring
+          cloud, shipping polished UX, and instrumenting analytics/A&#47;B to
+          iterate fast.
         </p>
       </div>
       <div className="mt-4 p-3 bg-gray-900/50 rounded border border-green-400/20">
-        <div className="text-white text-sm mb-2">Quick Facts:</div>
-        <div className="text-white text-sm space-y-1">
-          <div>• 🎯 Focus: Modern web technologies & AI-ML Integration</div>
-          <div>
-            • 🌟 Experience: Building Several Projects in software engineering
-          </div>
-          <div>• 🚀 Passion: Building innovative digital solutions</div>
-          <div>• 📍 Location: Available for remote opportunities</div>
-        </div>
+        <div className="text-white text-sm mb-2">Quick Facts</div>
+        <ul className="text-white text-sm space-y-1 list-disc pl-5">
+          <li>
+            GenAI coaching & training products (video, docs, real-time eval)
+          </li>
+          <li>
+            Frontend depth (React, Remix, RN) + backend APIs (Node, Django,
+            FastAPI)
+          </li>
+          <li>Cloud: Azure, AWS, GCP · CI/CD · Docker</li>
+          <li>Open to remote full-time, part-time, and consulting</li>
+        </ul>
       </div>
     </div>
   ),
@@ -113,39 +109,42 @@ export const commands: { [key: string]: () => React.ReactNode } = {
         <Code className="w-4 h-4 mr-2" />
         Technical Skills
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white text-sm">
         <div className="space-y-3">
           <div>
-            <div className="text-white text-sm mb-2">Frontend Development</div>
-            <div className="text-white text-sm space-y-1">
-              <div>• HTML5, CSS3, Tailwind CSS</div>
-              <div>• React.js, Next.js</div>
-              <div>• TypeScript, JavaScript</div>
-              <div>• PostMan API, Context API</div>
-            </div>
+            <div className="mb-2">Frontend</div>
+            <ul className="space-y-1">
+              <li>React.js, Next.js (App Router), Remix.js, React Native</li>
+              <li>TypeScript, Zustand/Redux, Tailwind, ShadCN UI</li>
+              <li>Testing: Jest, RTL, Cypress</li>
+            </ul>
           </div>
           <div>
-            <div className="text-white text-sm mb-2">Backend Development</div>
-            <div className="text-white text-sm space-y-1">
-              <div>• Python, Node.js</div>
-              <div>• RESTful APIs, MYSQL</div>
-            </div>
+            <div className="mb-2">Backend & APIs</div>
+            <ul className="space-y-1">
+              <li>Node.js, Express.js, Python (Django, FastAPI)</li>
+              <li>REST, Auth, file/video pipelines</li>
+            </ul>
           </div>
         </div>
+
         <div className="space-y-3">
           <div>
-            <div className="text-white text-sm mb-2">Database & Cloud</div>
-            <div className="text-white text-sm space-y-1">
-              <div>• AWS, Google Cloud, Azure</div>
-              <div>• Docker, Kubernetes</div>
-            </div>
+            <div className="mb-2">AI/Agentic</div>
+            <ul className="space-y-1">
+              <li>Azure OpenAI (GPT-4o), Open-source LLMs</li>
+              <li>LangChain, LangGraph, RAG, MCP, AI SDK</li>
+              <li>Azure Document Intelligence, Whisper, Video Indexer</li>
+            </ul>
           </div>
           <div>
-            <div className="text-white text-sm mb-2">Tools & Others</div>
-            <div className="text-white text-sm space-y-1">
-              <div>• Git, GitHub, GitLab</div>
-              <div>• Figma, Adobe Creative Suite, Canva</div>
-            </div>
+            <div className="mb-2">Cloud, Data & DevOps</div>
+            <ul className="space-y-1">
+              <li>Azure, AWS, GCP · Vercel · Netlify</li>
+              <li>PostgreSQL, MySQL, MongoDB, Vector DB</li>
+              <li>Docker, Jenkins, CI/CD</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -156,166 +155,73 @@ export const commands: { [key: string]: () => React.ReactNode } = {
     <div className="space-y-4">
       <div className="text-white font-semibold flex items-center">
         <Briefcase className="w-4 h-4 mr-2" />
-        Featured Projects
+        Selected Projects (Impact)
       </div>
-      <div className="space-y-4">
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="text-white font-medium">
-            CyberPaste – Secure AI-Powered Pastebin
-          </div>
-          <div className="text-white text-sm mt-1">
-            Full-stack pastebin focused on privacy and productivity. Features
-            client-side AES-GCM encryption, AI assistant for syntax fixes and
-            complexity insights, multi-file pastes, configurable expiry/access
-            control, raw view, and a sleek cyberpunk UI with a command palette.
-          </div>
-          <div className="text-white text-xs mt-2">
-            Tech: Next.js, TypeScript, Tailwind CSS, ShadCN UI, Supabase
-            (PostgreSQL + Auth), Genkit + Google Gemini, Vercel/Firebase Hosting
-          </div>
-          <div className="mt-2">
-            <a
-              href="https://cyber-paste.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-white transition-colors text-xs"
-            >
-              🌐 Live Demo
-            </a>
-          </div>
+
+      {/* Verbalizer AI */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20 space-y-1">
+        <div className="text-white font-medium">
+          Verbalizer AI — GenAI Coaching Platform
+        </div>
+        <div className="text-white text-sm">
+          Built web + mobile apps enabling real-time role-play evaluation,
+          persona scoring, and analytics; boosted coaching efficiency ~3×.
+        </div>
+        <div className="text-white text-xs">
+          Stack: React, Remix, React Native, Prisma, Docker · Azure OpenAI
+          (GPT-4o), Azure Storage, Video Indexer, Whisper
         </div>
       </div>
 
-      <div className="space-y-4">
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="text-white font-medium">
-            Study Smart (Student Assistant App)
-          </div>
-          <div className="text-white text-sm mt-1">
-            Full-stack application with AI-driven ssistant designed for
-            students. Features include to-do list management, study timer,
-            resource links, and motivational quotes to help students stay
-            organized and focused.
-          </div>
-          <div className="text-white text-xs mt-2">
-            Tech: React, TypeScript, Google Gemini API, Tailwind CSS, Netlify,
-            GitHub Actions
-          </div>
-          <div className="mt-2">
-            <a
-              href="https://study-smart-pink.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-white transition-colors text-xs"
-            >
-              🌐 Live Demo
-            </a>
-          </div>
+      {/* Sense AI */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20 space-y-1">
+        <div className="text-white font-medium">
+          Sense AI — Medical Training Assistant
         </div>
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="text-white font-medium">
-            Visionary Spaces (Virtual Room Designer)
-          </div>
-          <div className="text-white text-sm mt-1">
-            3D interior design prototype that allows users to visualize and
-            customize room layouts by selecting elements and adjusting the vibe.
-          </div>
-          <div className="text-white text-xs mt-2">
-            Tech: React, TypeScript, Google Gemini API, Tailwind CSS, Netlify,
-            GitHub Actions
-          </div>
-          <div className="mt-2">
-            <a
-              href="https://visionary-spaces.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-white transition-colors text-xs"
-            >
-              🌐 Live Demo
-            </a>
-          </div>
+        <div className="text-white text-sm">
+          Django CMS app with AI chat, doc/video analysis, and modular agent
+          plugins; reduced LMS costs ~40% and training time ~60%.
         </div>
-        <div className="space-y-4">
-          <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-            <div className="text-white font-medium">
-              AuraCalm – AI-Powered Stress Level Checker
-            </div>
-            <div className="text-white text-sm mt-1">
-              Real-time stress detection app that analyzes vocal patterns to
-              check stress levels and deliver calm. Features soothing
-              soundscapes, gentle haptics, and relaxing visuals for instant
-              stress relief.
-            </div>
-            <div className="text-white text-xs mt-2">
-              Tech: Next.js 14, TypeScript, Tailwind CSS, Framer Motion, Web
-              Audio API, Navigator Vibration API, Vercel Hosting
-            </div>
-            <div className="mt-2">
-              <a
-                href="https://aura-calm.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white transition-colors text-xs"
-              >
-                🌐 Live Demo
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="text-white font-medium">
-            Invisible Cloak (Computer Vision Project)
-          </div>
-          <div className="text-white text-sm mt-1">
-            Real-time computer vision project using OpenCV that creates an
-            invisibility effect by masking a specific color.{" "}
-          </div>
-          <div className="text-white text-xs mt-2">
-            Tech: Python, OpenCV, NumPy
-          </div>
-          <div className="mt-2">
-            <a
-              href="https://github.com/SUBHADEEP96/Invisible-Cloak"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-white transition-colors text-xs"
-            >
-              🔗 GitHub Repository
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="space-y-4">
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="text-white font-medium">
-            Jarvis – AI Voice Assistant
-          </div>
-          <div className="text-white text-sm mt-1">
-            Personal AI-powered voice assistant capable of executing commands,
-            answering queries, and interacting in natural language. Supports
-            speech recognition, text-to-speech, OpenAI-powered conversations,
-            and automating system tasks.
-          </div>
-          <div className="text-white text-xs mt-2">
-            Tech: Python, OpenAI API, SpeechRecognition, Pyttsx3, PyAutoGUI,
-            Webbrowser, Linux Environment
-          </div>
-          <div className="mt-2">
-            <a
-              href="https://github.com/SUBHADEEP96/JARVIS-_VOICE-ASSINTANT"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-white transition-colors text-xs"
-            >
-              🔗 GitHub Repository
-            </a>
-          </div>
+        <div className="text-white text-xs">
+          Stack: Python (Django), Azure OpenAI (GPT-4o), Azure Document
+          Intelligence, Semantic Kernel, LangChain
         </div>
       </div>
 
-      <div className="text-white text-sm mt-4">
-        💡 View more projects on my GitHub profile
+      {/* Modal-Social */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20 space-y-1">
+        <div className="text-white font-medium">
+          Modal-Social — Community Module
+        </div>
+        <div className="text-white text-sm">
+          End-to-end social community features with Remix, Tailwind, TypeScript,
+          AWS.
+        </div>
+      </div>
+
+      {/* BeiGene Migration */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20 space-y-1">
+        <div className="text-white font-medium">
+          BeiGene Treatment Landscape — Migration
+        </div>
+        <div className="text-white text-sm">
+          Migrated Angular → Next.js; improved performance and added advanced
+          filtering.
+        </div>
+      </div>
+
+      {/* Doctors Training Portal */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20 space-y-1">
+        <div className="text-white font-medium">
+          Doctors Training Portal — Quiz Module
+        </div>
+        <div className="text-white text-sm">
+          Implemented robust quiz flows using Remix, Tailwind, Prisma.
+        </div>
+      </div>
+
+      <div className="text-white text-sm mt-2">
+        More work: GitHub @ SUBHADEEP96
       </div>
     </div>
   ),
@@ -326,90 +232,119 @@ export const commands: { [key: string]: () => React.ReactNode } = {
         <Briefcase className="w-4 h-4 mr-2" />
         Work Experience
       </div>
-      <div className="space-y-4">
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="flex justify-between items-start mb-2">
-            <div className="text-white font-medium">
-              Top 10 in Nationwide Hackathon – Visionary-Spaces
-            </div>
-            <div className="text-white text-sm">Sep 2025</div>
-          </div>
-          <div className="text-white text-sm mb-2">
-            Reelcode Project-A-Thons
-          </div>
-          <div className="text-white text-sm space-y-1">
-            <div>
-              • Secured a place in the Top 10 among nationwide participants with
-              the project &quot;Visionary-Spaces&quot;.
-            </div>
-            <div>
-              • Built a solution combining creativity and technology to design
-              impactful digital spaces.
-            </div>
-            <div>
-              • Gained valuable experience by competing with talented peers and
-              learning from diverse approaches.
-            </div>
-            <div>
-              • Overcame challenges like brainstorming innovative ideas,
-              late-night debugging, and refining the final presentation.
-            </div>
-          </div>
-        </div>
 
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="flex justify-between items-start mb-2">
-            <div className="text-white font-medium">Campus Ambassador</div>
-            <div className="text-white text-sm">July 2024 - April 2025</div>
+      {/* Syneos Health */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
+        <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
+          <div className="text-white font-medium">
+            Syneos Health — Senior Frontend Developer
           </div>
-          <div className="text-white text-sm mb-2">Geek for Geeks</div>
-          <div className="text-white text-sm space-y-1">
-            <div>
-              • Organized events and workshops to enhance career readiness among
-              peers.
-            </div>
-            <div>
-              • Promoted Internshala’s initiatives on campus and assisted
-              students in accessing internship opportunities.
-            </div>
+          <div className="text-white text-sm">
+            Feb 2024 – Present · Remote (India)
           </div>
         </div>
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="flex justify-between items-start mb-2">
-            <div className="text-white font-medium">Campus Ambassador</div>
-            <div className="text-white text-sm">May 2024 - July 2024</div>
+        <ul className="text-white text-sm space-y-1 list-disc pl-5">
+          <li>
+            Architected Verbalizer AI (web + mobile), 3× coaching efficiency
+            uplift.
+          </li>
+          <li>
+            Built Sense AI training assistant (Django + Azure OpenAI), cut costs
+            ~40%.
+          </li>
+          <li>
+            Led Modal-Social community module; migrated BeiGene app
+            Angular→Next.js.
+          </li>
+          <li>Shipped quiz module for Doctors Training Portal.</li>
+        </ul>
+      </div>
+
+      {/* LTIMindtree */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
+        <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
+          <div className="text-white font-medium">
+            LTIMindtree Ltd — Senior Software Engineer
           </div>
-          <div className="text-white text-sm mb-2">Internshala</div>
-          <div className="text-white text-sm space-y-1">
-            <div>
-              • Organized events and workshops to enhance career readiness among
-              peers.
-            </div>
-            <div>
-              • Promoted Internshala’s initiatives on campus and assisted
-              students in accessing internship opportunities.
-            </div>
-          </div>
-        </div>
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="flex justify-between items-start mb-2">
-            <div className="text-white font-medium">
-              Artificial Intelligence Intern
-            </div>
-            <div className="text-white text-sm">Nov 2023 - Jan 2024</div>
-          </div>
-          <div className="text-white text-sm mb-2">Corizo Edutech Private</div>
-          <div className="text-white text-sm space-y-1">
-            <div>
-              • Implemented machine learning algorithms to predict
-              Cardiovascular Diseases.
-            </div>
-            <div>
-              • Implemented machine learning algorithms for Spotify songs genre
-              segmentation
-            </div>
+          <div className="text-white text-sm">
+            Oct 2021 – Feb 2024 · Kolkata, IN
           </div>
         </div>
+        <ul className="text-white text-sm space-y-1 list-disc pl-5">
+          <li>
+            Owned Search & Tealium modules (B2B/B2C); mentored 3 junior
+            engineers.
+          </li>
+          <li>
+            Built PDP/TN features with Next.js/Redux; integrated marketing
+            tools.
+          </li>
+          <li>
+            Designed microservices (Node/Express/Mongo) for high-traffic
+            e-commerce.
+          </li>
+          <li>
+            React Native B2B order-tracking app with real-time integrations.
+          </li>
+        </ul>
+      </div>
+
+      {/* Pitangent */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
+        <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
+          <div className="text-white font-medium">
+            Pitangent Analytics — Full Stack Developer
+          </div>
+          <div className="text-white text-sm">
+            Feb 2021 – Sep 2021 · Kolkata, IN
+          </div>
+        </div>
+        <ul className="text-white text-sm space-y-1 list-disc pl-5">
+          <li>
+            React/Redux portal components; AWS S3; integrated 40+ REST APIs
+            (Laravel).
+          </li>
+          <li>Migrations, CRUD, complex business logic in Laravel.</li>
+          <li>SaaS admin (Swifty) with role-based access & reporting.</li>
+        </ul>
+      </div>
+
+      {/* MS Web Design */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
+        <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
+          <div className="text-white font-medium">
+            MS Web Design — Full Stack Developer
+          </div>
+          <div className="text-white text-sm">
+            Jul 2020 – Feb 2021 · Remote (Kolkata, IN)
+          </div>
+        </div>
+        <ul className="text-white text-sm space-y-1 list-disc pl-5">
+          <li>
+            Shopify admin panels (REST/GraphQL) using PHP/JS for
+            OttoCases/Wholesale.
+          </li>
+          <li>React product customization; Node/Express backend modules.</li>
+          <li>Shipped features & perf fixes across 20+ e-commerce stores.</li>
+        </ul>
+      </div>
+
+      {/* Think Surf Media */}
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
+        <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
+          <div className="text-white font-medium">
+            Think Surf Media — Web Developer
+          </div>
+          <div className="text-white text-sm">
+            Jul 2019 – Apr 2020 · Kolkata, IN
+          </div>
+        </div>
+        <ul className="text-white text-sm space-y-1 list-disc pl-5">
+          <li>
+            React-based tracking module (Trac On Mobi) with REST integration.
+          </li>
+          <li>Inventory system (PHP, MySQL, AJAX) for Eurasia Decor.</li>
+        </ul>
       </div>
     </div>
   ),
@@ -420,69 +355,12 @@ export const commands: { [key: string]: () => React.ReactNode } = {
         <GraduationCap className="w-4 h-4 mr-2" />
         Education
       </div>
-      <div className="space-y-3">
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="flex justify-between items-start mb-2">
-            <div className="text-white font-medium">
-              Bachelors of Computer Science
-            </div>
-            <div className="text-white text-sm">2023 - Present</div>
+      <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
+        <div className="flex justify-between items-start mb-2">
+          <div className="text-white font-medium">
+            Amity University — B.Tech, CSE
           </div>
-          <div className="text-white text-sm mb-2">
-            Birla Institute of Technology
-          </div>
-          <div className="text-white text-sm">
-            Computer Science & Engineering
-          </div>
-        </div>
-      </div>
-    </div>
-  ),
-
-  certifications: () => (
-    <div className="space-y-4">
-      <div className="text-white font-semibold flex items-center">
-        <Award className="w-4 h-4 mr-2" />
-        Certifications & Achievements
-      </div>
-      <div className="space-y-3">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="p-3 bg-gray-900/50 rounded border border-green-400/20">
-            <div className="text-white text-sm font-medium">
-              Goldman Sachs - Software Engineering
-            </div>
-            <div className="text-white text-xs">Forage • Feb 2025</div>
-          </div>
-          <div className="p-3 bg-gray-900/50 rounded border border-green-400/20">
-            <div className="text-white text-sm font-medium">
-              Microsoft Azure Cloud Course
-            </div>
-            <div className="text-white text-xs">Microsoft • May 2024</div>
-          </div>
-          <div className="p-3 bg-gray-900/50 rounded border border-green-400/20">
-            <div className="text-white text-sm font-medium">
-              Tata Group - Cybersecurity Analyst
-            </div>
-            <div className="text-white text-xs">Forage• May 2024</div>
-          </div>
-          <div className="p-3 bg-gray-900/50 rounded border border-green-400/20">
-            <div className="text-white text-sm font-medium">
-              Artificial Intelligence Intern
-            </div>
-            <div className="text-white text-xs">Corizo Edutech • Jan 2023</div>
-          </div>
-        </div>
-        <div className="mt-4 p-3 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="text-white text-sm mb-2">Achievements:</div>
-          <div className="text-white text-sm space-y-1">
-            <div>
-              🏆 selected for Phase 2 of the Vultr Hackathon organized by
-              GeeksforGeeks 🎉
-            </div>
-            <div>
-              🌟 intern at the International Model United Nations (IMUN)!
-            </div>
-          </div>
+          <div className="text-white text-sm">2015 – 2019 · Kolkata, India</div>
         </div>
       </div>
     </div>
@@ -494,23 +372,15 @@ export const commands: { [key: string]: () => React.ReactNode } = {
         <Users className="w-4 h-4 mr-2" />
         Leadership & Community
       </div>
-      <div className="space-y-3">
-        <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="text-white font-medium mb-2">Tech Lead</div>
-          <div className="text-white text-sm space-y-1">
-            <div>
-              • Leading a team of 8 developers of Google Developers Club
-            </div>
-            <div>
-              • Established code review processes and technical standards
-            </div>
-            <div>
-              • selected for Phase 2 of the Vultr Hackathon organized by
-              GeeksforGeeks
-            </div>
-          </div>
-        </div>
-      </div>
+      <ul className="text-white text-sm space-y-1 list-disc pl-5">
+        <li>
+          Mentored junior engineers (code reviews, module ownership, best
+          practices).
+        </li>
+        <li>
+          Drove performance, analytics and A/B experimentation culture on teams.
+        </li>
+      </ul>
     </div>
   ),
 
@@ -523,14 +393,13 @@ export const commands: { [key: string]: () => React.ReactNode } = {
       <div className="space-y-3">
         <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
           <div className="text-white text-sm mb-3">
-            Let&apos;s connect and discuss opportunities!
+            Let&apos;s connect on product engineering or GenAI builds.
           </div>
           <div className="space-y-2 text-white text-sm">
             <div className="flex items-center">
               <Mail className="w-4 h-4 mr-2" />
               <a
-                href="mailto:subhadeep2040@gmail.com
-"
+                href="mailto:subhadeep2040@gmail.com"
                 className="hover:text-white transition-colors text-white"
               >
                 subhadeep2040@gmail.com
@@ -571,18 +440,18 @@ export const commands: { [key: string]: () => React.ReactNode } = {
             </div>
           </div>
         </div>
+
         <div className="p-4 bg-gray-900/50 rounded border border-green-400/20">
-          <div className="text-white text-sm mb-2">Available for:</div>
-          <div className="text-white text-sm space-y-1">
-            <div>✅ Full-time opportunities</div>
-            <div>✅ Freelance projects</div>
-            <div>✅ Technical consulting</div>
-            <div>✅ Speaking engagements</div>
-          </div>
+          <div className="text-white text-sm mb-2">Available for</div>
+          <ul className="text-white text-sm space-y-1 list-disc pl-5">
+            <li>Full-time roles</li>
+            <li>Freelance/Part-time builds</li>
+            <li>Agentic AI/GenAI consulting</li>
+            <li>Technical talks & workshops</li>
+          </ul>
         </div>
-        <div className="text-white text-sm">
-          💡 Response time: Usually within 24 hours
-        </div>
+
+        <div className="text-white text-sm">Typical response: &lt;24h</div>
       </div>
     </div>
   ),
@@ -594,20 +463,16 @@ export const commands: { [key: string]: () => React.ReactNode } = {
         sudo access granted...
       </div>
       <div className="p-4 bg-red-900/20 border border-red-400/30 rounded">
-        <div className="text-red-400 text-sm mb-2">
-          🚨 SECRET CLASSIFIED INFORMATION 🚨
-        </div>
-        <div className="text-white text-sm space-y-1">
-          <div>• Secret project: Building the next-gen AI assistant</div>
-          <div>• Hidden skill: Can debug code in my sleep</div>
-          <div>• Coffee consumption: 42 cups per week</div>
-          <div>• Favorite debugging tool: console.log() 😄</div>
-          <div>• Secret superpower: Reading documentation</div>
-        </div>
+        <div className="text-red-400 text-sm mb-2">🚨 SECRET (jk) 🚨</div>
+        <ul className="text-white text-sm space-y-1 list-disc pl-5">
+          <li>
+            Superpower: Turning ambiguous product ideas into shipped features.
+          </li>
+          <li>Favorite tool: a well-placed console.log()</li>
+          <li>Energy source: Coffee + clean PRs.</li>
+        </ul>
       </div>
-      <div className="text-white text-sm">
-        Just kidding! But I do love what I do. 🚀
-      </div>
+      <div className="text-white text-sm">Back to shipping. 🚀</div>
     </div>
   ),
 };

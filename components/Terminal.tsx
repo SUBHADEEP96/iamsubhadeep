@@ -27,7 +27,7 @@ const Terminal: React.FC = () => {
       output: (
         <div className="space-y-2">
           <div className="text-white">
-            Welcome to my interactive &apos;AI powered&apos; portfolio terminal!
+            Welcome to my interactive portfolio terminal!
           </div>
           <div className="text-white">
             Type &apos;help&apos; to see available commands.
@@ -77,8 +77,7 @@ const Terminal: React.FC = () => {
         output: (
           <div className="space-y-2">
             <div className="text-white">
-              Welcome to my interactive &apos;AI powered&apos; portfolio
-              terminal!
+              Welcome to my interactive portfolio terminal!
             </div>
             <div className="text-white">
               Type &apos;help&apos; to see available commands.
