@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowBigLeftDash, ArrowBigRightDash } from "lucide-react";
+
 type Repo = {
   id: number;
   name: string;
@@ -38,7 +39,6 @@ export default function GitHubProjectsSlider({
         setLoading(true);
         setError(null);
 
-        // Prefer your own Next.js API route so you don't expose a token client-side.
         const base = useApiRoute
           ? `/api/github-projects?user=${encodeURIComponent(username)}`
           : `https://api.github.com/users/${encodeURIComponent(
@@ -51,7 +51,6 @@ export default function GitHubProjectsSlider({
           headers: useApiRoute
             ? {}
             : {
-                // Direct GitHub fetch (no token) is fine for public repos but rate-limited.
                 Accept: "application/vnd.github+json",
               },
           cache: "force-cache",
@@ -85,28 +84,35 @@ export default function GitHubProjectsSlider({
     fetchRepos();
   }, [username, topic, limit, useApiRoute]);
 
-  const scrollBy = (px: number) => {
-    if (!scrollerRef.current) return;
-    scrollerRef.current.scrollBy({ left: px, behavior: "smooth" });
+  const nudge = (px: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const nextLeft = el.scrollLeft + px;
+    if (typeof el.scrollTo === "function") {
+      el.scrollTo({ left: nextLeft, behavior: "smooth" });
+    } else {
+      el.scrollLeft = nextLeft;
+    }
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full isolate">
       <h2 className="text-center text-lg md:text-4xl mb-4 text-black dark:text-white ">
-        Projects On GitHub 😸
+        Projects on GitHub 😸
       </h2>
-      <div className="mb-4 flex items-center justify-between">
+
+      <div className="mb-4 flex items-center justify-between relative z-20 pointer-events-auto">
         <div className="flex gap-2">
           <button
-            onClick={() => scrollBy(-400)}
-            className="cursor-pointer rounded-2xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            onClick={() => nudge(-400)}
+            className="cursor-pointer rounded-2xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800 touch-manipulation"
             aria-label="Scroll Left"
           >
             <ArrowBigLeftDash />
           </button>
           <button
-            onClick={() => scrollBy(400)}
-            className="cursor-pointer rounded-2xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            onClick={() => nudge(400)}
+            className="cursor-pointer rounded-2xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800 touch-manipulation"
             aria-label="Scroll Right"
           >
             <ArrowBigRightDash />
@@ -114,9 +120,7 @@ export default function GitHubProjectsSlider({
         </div>
       </div>
 
-      {/* Content area */}
-      <div className="relative">
-        {/* Loading / Error */}
+      <div className="relative z-0">
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {Array.from({ length: Math.min(6, limit) }).map((_, i) => (
@@ -135,7 +139,12 @@ export default function GitHubProjectsSlider({
         {!loading && !error && repos && repos.length > 0 && (
           <div
             ref={scrollerRef}
-            className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2"
+            className="
+              flex flex-nowrap gap-4
+              overflow-x-auto overscroll-x-contain scroll-smooth
+              snap-x snap-proximity pb-2
+              relative z-0
+            "
           >
             {repos.map((repo) => (
               <a
