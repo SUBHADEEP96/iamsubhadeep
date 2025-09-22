@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
+import { ArrowBigLeftDash, ArrowBigRightDash } from "lucide-react";
 type Repo = {
   id: number;
   name: string;
@@ -15,13 +15,9 @@ type Repo = {
 };
 
 type Props = {
-  /** Your GitHub username (e.g., "SUBHADEEP96") */
   username: string;
-  /** Filter by a topic label you add to repos (e.g., "portfolio"). Leave empty to show all public repos. */
   topic?: string;
-  /** Max cards to show */
   limit?: number;
-  /** Use API route (recommended) or direct GitHub? */
   useApiRoute?: boolean;
 };
 
@@ -68,14 +64,10 @@ export default function GitHubProjectsSlider({
 
         let data = (await res.json()) as Repo[];
 
-        // If fetching directly from GitHub, data includes all public repos.
-        // Filter by topic on the client if requested (topics array might be missing for direct REST without preview headers).
         if (!useApiRoute && topic) {
-          data = []; // Direct filtering by topic is unreliable without extra calls.
-          // Tip: use the API route below for topic filtering, or pin repos via GraphQL.
+          data = [];
         }
 
-        // Sort by pushed_at desc, slice to limit
         data.sort(
           (a, b) =>
             new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
@@ -101,23 +93,23 @@ export default function GitHubProjectsSlider({
   return (
     <div className="w-full">
       <h2 className="text-center text-lg md:text-4xl mb-4 text-black dark:text-white ">
-        Projects on GitHub 😸
+        Projects On GitHub 😸
       </h2>
       <div className="mb-4 flex items-center justify-between">
         <div className="flex gap-2">
           <button
             onClick={() => scrollBy(-400)}
-            className="rounded-2xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="cursor-pointer rounded-2xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
             aria-label="Scroll Left"
           >
-            ←
+            <ArrowBigLeftDash />
           </button>
           <button
             onClick={() => scrollBy(400)}
-            className="rounded-2xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="cursor-pointer rounded-2xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
             aria-label="Scroll Right"
           >
-            →
+            <ArrowBigRightDash />
           </button>
         </div>
       </div>
