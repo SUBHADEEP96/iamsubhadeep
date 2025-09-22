@@ -101,7 +101,7 @@ export default function GitHubProjectsSlider({
   return (
     <div className="w-full">
       <h2 className="text-center text-lg md:text-4xl mb-4 text-black dark:text-white ">
-        Projects on GitHub
+        Projects on GitHub 😸
       </h2>
       <div className="mb-4 flex items-center justify-between">
         <div className="flex gap-2">
