@@ -10,13 +10,7 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import {
-  Github,
-  SquareTerminal,
-  BotMessageSquare,
-  Globe,
-  FileUser,
-} from "lucide-react";
+import { Github, SquareTerminal, BotMessageSquare, Globe } from "lucide-react";
 import { useState } from "react";
 
 export function NavbarDemo() {
@@ -68,7 +62,7 @@ export function NavbarDemo() {
                 window.open("/data/Subhadeep_Paul_profile.pdf", "_blank")
               }
             >
-              <FileUser />
+              RESUME
             </NavbarButton>
           </div>
         </NavBody>
@@ -107,7 +101,7 @@ export function NavbarDemo() {
                 variant="primary"
                 className=""
               >
-                <Github />
+                GITHUB
               </NavbarButton>
               <NavbarButton
                 variant="primary"
@@ -116,7 +110,7 @@ export function NavbarDemo() {
                   window.open("/data/Subhadeep_Paul_profile.pdf", "_blank")
                 }
               >
-                <FileUser />
+                RESUME
               </NavbarButton>
             </div>
           </MobileNavMenu>
