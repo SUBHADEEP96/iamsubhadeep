@@ -17,7 +17,7 @@ export function NavbarDemo() {
   const navItems = [
     {
       icon: <Globe className="w-4 h-4 inline mr-2" />,
-      name: "WebView",
+      name: "Web-View",
       link: "/",
     },
     {
