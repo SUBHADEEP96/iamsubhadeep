@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 type Line = string;
 
@@ -86,11 +87,31 @@ export default function ChatBot() {
       <h1 className="text-2xl font-semibold mb-4">Ask about Subhadeep</h1>
 
       <div className="space-y-3 bg-neutral-950/5 dark:bg-white/5 rounded-xl p-4 max-h-[60vh] overflow-auto">
-        {history.map((line, i) => (
-          <div key={i} className="whitespace-pre-wrap text-sm">
-            {line}
-          </div>
-        ))}
+        {history.map((line, i) => {
+          // Check if this is a bot line
+          if (line.startsWith("Bot:")) {
+            return (
+              <div key={i} className="flex items-start gap-2 text-sm">
+                <Image
+                  src="/assets/sp-avatar.png"
+                  alt="Bot Avatar"
+                  width={48}
+                  height={48}
+                  className="rounded-full border border-neutral-300 dark:border-neutral-700 bg-white"
+                />
+                <span className="whitespace-pre-wrap">
+                  {line.replace(/^Bot:\s*/, "")}
+                </span>
+              </div>
+            );
+          }
+          // User line
+          return (
+            <div key={i} className="whitespace-pre-wrap text-sm">
+              {line}
+            </div>
+          );
+        })}
         <div ref={bottomRef} />
       </div>
 
