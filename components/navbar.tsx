@@ -50,7 +50,7 @@ export function NavbarDemo() {
                 window.open(
                   "https://github.com/SUBHADEEP96",
                   "_blank",
-                  "noopener,noreferrer"
+                  "noopener,noreferrer",
                 )
               }
             >
@@ -59,7 +59,8 @@ export function NavbarDemo() {
             <NavbarButton
               className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 cursor-pointer"
               onClick={() =>
-                window.open("/data/Subhadeep_Paul_profile.pdf", "_blank")
+                // window.open("/data/Subhadeep_Paul_profile.pdf", "_blank")
+                window.open("/data/resume.html", "_blank")
               }
             >
               RESUME
@@ -95,7 +96,7 @@ export function NavbarDemo() {
                   window.open(
                     "https://github.com/SUBHADEEP96",
                     "_blank",
-                    "noopener,noreferrer"
+                    "noopener,noreferrer",
                   )
                 }
                 variant="primary"

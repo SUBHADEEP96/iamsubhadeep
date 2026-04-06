@@ -1,4 +1,3 @@
-// scripts/ingest-openai.ts
 import { config } from "dotenv";
 config({ path: ".env.local", override: true });
 
@@ -17,10 +16,10 @@ function toMetadata(meta: Record<string, any> = {}) {
   const page = Number.isFinite(meta?.pdf?.pageNumber)
     ? meta.pdf.pageNumber
     : Number.isFinite(meta?.pdf?.page)
-    ? meta.pdf.page
-    : Number.isFinite(meta?.pageNumber)
-    ? meta.pageNumber
-    : undefined;
+      ? meta.pdf.page
+      : Number.isFinite(meta?.pageNumber)
+        ? meta.pageNumber
+        : undefined;
   if (typeof page === "number") out.pageNumber = page;
   return out;
 }
@@ -42,7 +41,7 @@ async function main() {
   // 1) Load sources
   const pdfPath = path.resolve(
     process.cwd(),
-    "resume/Subhadeep_Paul_profile.pdf"
+    "resume/Subhadeep_Paul_profile.pdf",
   );
   const pdfDocs = await new PDFLoader(pdfPath, { splitPages: false }).load();
 
@@ -71,14 +70,14 @@ async function main() {
     const vecs = await embedder.embedDocuments(chunk);
     vectors.push(...vecs);
     console.log(
-      `Embedded ${Math.min(i + EMBED_BATCH, texts.length)} / ${texts.length}`
+      `Embedded ${Math.min(i + EMBED_BATCH, texts.length)} / ${texts.length}`,
     );
   }
 
   // Sanity: ensure expected dimension
   if (vectors[0]?.length !== 1536) {
     throw new Error(
-      `Unexpected embedding dim: ${vectors[0]?.length} (expected 1536)`
+      `Unexpected embedding dim: ${vectors[0]?.length} (expected 1536)`,
     );
   }
 
@@ -94,7 +93,7 @@ async function main() {
       metadatas: docsSlice.map((d) => toMetadata(d.metadata)),
     });
     console.log(
-      `Added ${Math.min(i + ADD_BATCH, texts.length)} / ${texts.length}`
+      `Added ${Math.min(i + ADD_BATCH, texts.length)} / ${texts.length}`,
     );
   }
 
